@@ -1,0 +1,21 @@
+#main_container{
+    display : flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#canvas_container{
+    width: 50%;
+    
+}
+
+#prediction{
+    width: 50%;
+}
+
+#canvas{
+    box-shadow: 0px 0px 3px 0px black;
+}
+h1{
+    color : red;
+}

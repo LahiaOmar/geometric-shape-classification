@@ -1,0 +1,43 @@
+
+#title{
+    width: 100%;
+    text-align: center;    
+}
+
+.container{
+    display: flex;  
+    flex-direction: row;
+}
+
+#canvas-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+canvas{
+    box-shadow: 0px 0px 3px 0px black;
+}
+
+#data-information{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.input-information{
+
+}
+
+#btn-actions{
+    border-top: 10px;
+}
+
+button{
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    border :1px solid rgb(24, 255, 24);
+}
