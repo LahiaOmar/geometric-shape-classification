@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="{{url_for('static', filename='/css/collect_data.css')}}" rel="stylesheet" type="text/css">
+  <title>shape classifier : collect data</title>
+</head>
+
+<body>
+  <h1 id="title">Geometric shape classification - Data collection</h1>
+  <div class="container">
+    <div id="canvas-container">
+      <h3>Draw below : </h3>
+      <div>
+        <canvas id="canvas" width="400px" height="400px"></canvas>
+      </div>
+
+    </div>
+    <div id="data-information">
+      <h3>List of possible classes</h3>
+      <ul>
+        <li>Cercle</li>
+        <li>Line</li>
+        <li>Rectangle</li>
+        <li>Triangle</li>
+      </ul>
+      <div class="input-information">
+        <label for="className">Class Name : </label>
+        <input type="text" id="className" placeholder="Class Name" />
+      </div>
+      <div id="btn-actions">
+        <button id="download"> SNAP </button>
+        <button id="clear">CLEAR</button>
+      </div>
+      <a name="img" id="link" style="display:none"></a>
+    </div>
+  </div>
+  <script src="{{ url_for('static' , filename='js/html2canvas.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='./js/collect_data.js') }}"></script>
+</body>
+
+</html>

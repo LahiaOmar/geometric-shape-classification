@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>shape classification and correction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <h1>Geometric Shape Classification And Corrections</h1>
+    <div id="main_container">
+        <div id="canvas_container">
+            <h2>Draw a forme : </h2>
+            <canvas width="400" height="400" id="canvas"></canvas>
+            <a name="img" id="link" style="display:none"></a>
+        </div>
+        <div id="prediction">
+            <p>Prediction is : <span id="class_prediction">  </span></p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/html2canvas.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
