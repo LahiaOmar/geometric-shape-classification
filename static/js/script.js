@@ -1,6 +1,6 @@
-let second_canvas = document.getElementById("canvas")
+let drawCanvas = document.getElementById("canvas")
 let download = document.getElementById("link")
-let se_cnt = second_canvas.getContext("2d")
+let se_cnt = drawCanvas.getContext("2d")
 let class_prediction = document.getElementById("class_prediction")
 
 clearCanvas = (canvas, context) => {
@@ -25,18 +25,18 @@ drawInCanvas = (canvas, start, end) => {
   canvas.stroke()
 }
 
-second_canvas.addEventListener('mousedown', (e) => {
+drawCanvas.addEventListener('mousedown', (e) => {
   console.log("mousedown", e)
   this.downBtn = true
   this.x = e.offsetX
   this.y = e.offsetY
 }, 0)
 
-second_canvas.addEventListener("mouseup", (e) => {
+drawCanvas.addEventListener("mouseup", (e) => {
   this.downBtn = false
-  html2canvas(second_canvas).then(
-    (second_canvas) => {
-      let img = second_canvas.toDataURL("image/jpg")
+  html2canvas(drawCanvas).then(
+    (drawCanvas) => {
+      let img = drawCanvas.toDataURL("image/jpg")
 
       fetch('/prediction', {
         method: 'POST',
@@ -55,17 +55,22 @@ second_canvas.addEventListener("mouseup", (e) => {
               console.log(data.error)
             }
             else{
-              class_prediction.innerText = data.class
+              if(data.score < 4.000){
+                class_prediction.innerText = "unknown"
+              }
+              else{
+                class_prediction.innerText = data.class
+              }
             }
           })
         }
-        clearCanvas(second_canvas, se_cnt)
+        clearCanvas(drawCanvas, se_cnt)
       })
     }
   )
 })
 
-second_canvas.addEventListener("mousemove", (e) => {
+drawCanvas.addEventListener("mousemove", (e) => {
   if (this.downBtn) {
     start = { x: this.x, y: this.y }
     se_end = { x: e.offsetX, y: e.offsetY }
