@@ -45,8 +45,8 @@ def prediction():
     pred =  DICT_LABELS[index_max_pred]
 
     return jsonify({"class" : pred,
-                    "score " : str(md_pred[0][index_max_pred])}
-                )
+                    "score" : str(md_pred[0][index_max_pred])
+                })
 
 if __name__ == "__main__":
     app.run(debug=True)
